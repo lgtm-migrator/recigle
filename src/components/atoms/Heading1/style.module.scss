@@ -1,0 +1,22 @@
+@import "sass-mq";
+@import "styles/constants";
+
+.heading1 {
+  @include mq($until: tablet) {
+    font-size: 6rem;
+  }
+
+  font: 8rem "shimizu";
+
+  .red {
+    color: #ea4335;
+  }
+
+  .yellow {
+    color: #fbbc05;
+  }
+
+  .green {
+    color: #34a853;
+  }
+}

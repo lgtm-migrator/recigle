@@ -1,0 +1,19 @@
+@import "sass-mq";
+@import "styles/constants";
+
+.labeled-checkbox {
+  @include mq($until: tablet) {
+    font-size: 1.2rem;
+  }
+
+  align-items: center;
+  display: grid;
+  font-size: 1.4rem;
+  gap: 6px;
+  grid-auto-flow: column;
+  justify-content: flex-start;
+
+  .label {
+    white-space: nowrap;
+  }
+}
