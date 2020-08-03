@@ -10,6 +10,8 @@ import {
 } from "react-share";
 import React, { FC } from "react";
 
+import { GoMarkGithub } from "react-icons/go";
+
 const Footer: FC = () => (
   <footer styleName="footer">
     <ul styleName="list">
@@ -27,6 +29,15 @@ const Footer: FC = () => (
         <TwitterShareButton url="https://recigle.kk-web.link/">
           <TwitterIcon round={true} size={21} />
         </TwitterShareButton>
+      </li>
+      <li>
+        <a
+          href="https://github.com/piro0919/recigle"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <GoMarkGithub color="#000" size={21} />
+        </a>
       </li>
     </ul>
     <div>
