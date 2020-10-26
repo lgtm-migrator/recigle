@@ -37,14 +37,14 @@ type FieldValues = {
   value: string;
 };
 
-type Suggestion = {
+type Suggestion2 = {
   $: {
     data: string;
   };
 };
 
 type CompleteSuggestion = {
-  suggestion: Suggestion[];
+  suggestion: Suggestion2[];
 };
 
 const Pages: FC = () => {
@@ -93,9 +93,8 @@ const Pages: FC = () => {
         .filter(({ id }) => site[id])
         .map(({ children }) => `-${children}`)
         .join(" ");
-      const query = `${
-        plusSiteQuery || "レシピ"
-      } ${minusSiteQuery} ${value}`.replace(/\s+/g, " ");
+      const query = `${plusSiteQuery || "レシピ"
+        } ${minusSiteQuery} ${value}`.replace(/\s+/g, " ");
 
       dispatch(setSite(site));
       dispatch(
@@ -141,22 +140,22 @@ const Pages: FC = () => {
           .map((value) => ({ value, type: "history" } as const)),
         ...(completeSuggestion && watch("value")
           ? completeSuggestion
-              .filter(({ suggestion }) => {
-                const {
-                  $: { data },
-                } = suggestion[0];
+            .filter(({ suggestion }) => {
+              const {
+                $: { data },
+              } = suggestion[0];
 
-                return !searchHistories.find(
-                  (searchHistory) => data === searchHistory
-                );
-              })
-              .map(({ suggestion }) => {
-                const {
-                  $: { data },
-                } = suggestion[0];
+              return !searchHistories.find(
+                (searchHistory) => data === searchHistory
+              );
+            })
+            .map(({ suggestion }) => {
+              const {
+                $: { data },
+              } = suggestion[0];
 
-                return { type: "search", value: data } as const;
-              })
+              return { type: "search", value: data } as const;
+            })
           : []),
       ].filter((_, index) => index < optionsNumber),
     [completeSuggestion, optionsNumber, searchHistories, watch]
@@ -248,7 +247,7 @@ const Pages: FC = () => {
   }, [setValue]);
   const handleSuggestionsClearRequested = useCallback<
     NonNullable<SearchInputProps["handleSuggestionsClearRequested"]>
-  >(() => {}, []);
+  >(() => { }, []);
 
   useOnClickOutside(searchInputRef, handler);
 
