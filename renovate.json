@@ -1,5 +1,15 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "assignees": ["piro0919"],
+  "automerge": true,
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "enabled": false,
+      "packagePatterns": ["husky", "node-sass"]
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"]
+    }
+  ],
+  "reviewers": ["piro0919"]
 }
